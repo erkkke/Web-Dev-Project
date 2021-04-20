@@ -1,0 +1,34 @@
+<div class="album">
+
+  <div class="newAlbum">
+    <button (click)="openModal(template)"><img src="https://www.flaticon.com/svg/vstatic/svg/157/157999.svg?token=exp=1618840829~hmac=0626f890e02ca7099be7ef5d8060e9a8"></button>
+  </div>
+
+  <div class="albumList">
+    <ul *ngIf="loaded">
+      <li *ngFor="let album of albums" class="listOfAlbums" routerLink="/albums/{{album.id}}/photos">
+        <div class="box1"><img src="https://picsum.photos/200/300" class="image"></div>
+        <div class="box2"><img src="https://picsum.photos/200/301" class="image"></div>
+        <div class="box3"><img src="https://picsum.photos/200/302" class="image"></div>
+        <div class="box4"><img src="https://picsum.photos/200/303" class="image"></div>
+        <div class="box5"><img src="https://picsum.photos/200/304" class="image"></div>
+        <div class="box6"><img src="https://picsum.photos/200/305" class="image"></div>
+        <div class="box">{{album.title}}</div>
+      </li>
+    </ul>
+  </div>
+
+  <p *ngIf='!loaded'>Loading album list...</p>
+</div>
+
+<ng-template #template>
+  <div class="modal-bg">
+    <div class="modal">
+      <input type="text" placeholder="Title">
+      <button class="add-button" (click)="addAlbum()">Add New Album</button>
+      <button type="button" class="close" aria-label="close" (click)="modalRef.hide()"><span aria-hidden="true">x</span></button>
+    </div>
+  </div>
+</ng-template>
+
+
