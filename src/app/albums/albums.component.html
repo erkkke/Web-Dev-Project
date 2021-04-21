@@ -24,9 +24,13 @@
 <ng-template #template>
   <div class="modal-bg">
     <div class="modal">
+      <h4>New Album</h4>
+      <p>Please fill in the following field to create a new album for your pins</p>
       <input type="text" placeholder="Title">
-      <button class="add-button" (click)="addAlbum()">Add New Album</button>
-      <button type="button" class="close" aria-label="close" (click)="modalRef.hide()"><span aria-hidden="true">x</span></button>
+      <div class="buttons">
+        <button class="add-button" (click)="addAlbum()">Add New Album</button>
+        <button class="close" (click)="modalRef.hide()">Close</button>
+      </div>
     </div>
   </div>
 </ng-template>
