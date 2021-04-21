@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "ebd65fd1-4617-4739-abbd-15260ffeb302"
+    "analytics": "a5f427b0-45e2-4074-a26a-083a8ac5bb81"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "artspace": {
+    "Lab6": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/artspace",
+            "outputPath": "dist/Lab6",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "artspace:build"
+            "browserTarget": "Lab6:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "artspace:build:production"
+              "browserTarget": "Lab6:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "artspace:build"
+            "browserTarget": "Lab6:build"
           }
         },
         "test": {
@@ -119,16 +119,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "artspace:serve"
+            "devServerTarget": "Lab6:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "artspace:serve:production"
+              "devServerTarget": "Lab6:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "artspace"
+  "defaultProject": "Lab6"
 }

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ModalModule} from 'ngx-bootstrap/modal';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +13,9 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { AboutComponent } from './components/about/about.component';
 import { UserComponent } from './components/user/user.component';
 import { FollowsComponent } from './components/follows/follows.component';
+import { AlbumsComponent } from './albums/albums.component';
+// import { AlbumDetailComponent } from './album-detail/album-detail.component';
+import { AlbumPhotosComponent } from './album-photos/album-photos.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { UploadPinComponent } from './components/upload-pin/upload-pin.component';
 import { AuthInterceptor } from './AuthInterceptor';
@@ -22,6 +26,9 @@ import { AuthInterceptor } from './AuthInterceptor';
   declarations: [
     AppComponent,
     HomeComponent,
+    AlbumsComponent,
+    // AlbumDetailComponent,
+    AlbumPhotosComponent,
     CategoriesComponent,
     AboutComponent,
     UserComponent,
