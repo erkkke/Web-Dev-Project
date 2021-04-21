@@ -8,9 +8,6 @@ import { UserService } from './user.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  title = 'Lab6';
-=======
 export class AppComponent implements OnInit {
   title = 'artspace';
 
