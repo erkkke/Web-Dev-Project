@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pin } from '../../models/Pin';
+import { Pin } from '../../models';
 
 @Component({
   selector: 'app-upload-pin',

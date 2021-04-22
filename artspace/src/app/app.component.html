@@ -12,7 +12,10 @@
             <a (click) = "showLogin()"><button class="signin">Sign in</button></a>
         </div>
         <ng-template #myProfile>
-            <a (click) = "logout()"><button class="logout">Log out</button></a>
+            <div>
+                <a routerLink="{{getMyProfile()}}"><button class="profilebutton">My Profile</button></a>
+                <a (click) = "logout()"><button class="logout">Log out</button></a>
+            </div>
         </ng-template>
     </header>
 

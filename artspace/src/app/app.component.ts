@@ -1,6 +1,8 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from './user.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-root',
@@ -64,6 +66,11 @@ export class AppComponent implements OnInit {
       this.logged = false;
       localStorage.removeItem('token');
     }
+  }
+
+  getMyProfile() {
+    let tokenInfo = jwt_decode( localStorage.getItem('token')! )
+    return `/${tokenInfo.user_id}`
   }
 
 }
