@@ -2,6 +2,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from './user.service';
+import { TokenInfo } from './models';
 import jwt_decode from 'jwt-decode';
 
 @Component({
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
 
   logged = false;
   submitted = false;
+  tokenInfo!: TokenInfo;
 
   showModalLogin!: boolean;
   loginForm!: FormGroup;
@@ -69,8 +71,8 @@ export class AppComponent implements OnInit {
   }
 
   getMyProfile() {
-    let tokenInfo = jwt_decode( localStorage.getItem('token')! )
-    return `/${tokenInfo.user_id}`
+    this.tokenInfo = jwt_decode( localStorage.getItem('token')! )
+    return `/${this.tokenInfo.user_id}`
   }
 
 }

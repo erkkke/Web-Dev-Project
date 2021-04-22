@@ -32,9 +32,12 @@ export interface User {
   "followers": number;
 };
 
-// export interface TokenInfo {
-
-// }
+export interface TokenInfo {
+  "email": string;
+  "exp": number;
+  "user_id": number;
+  "username": string;
+}
 
 export interface AuthToken {
   "token": string;
