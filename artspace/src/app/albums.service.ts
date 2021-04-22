@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AlbumsService {
   BASE_URL = 'https://jsonplaceholder.typicode.com';
-  BASE_URL = 'https://picsum.photos';
+  BASE_URL1 = 'https://picsum.photos';
   constructor(private client: HttpClient) { }
 
   getAlbums(): Observable<Album[]> {
