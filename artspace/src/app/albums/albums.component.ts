@@ -11,6 +11,7 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 })
 export class AlbumsComponent implements OnInit {
   albums!: Album[];
+  album!: Album;
   albumId!: number;
   photos!: Photo[];
   loaded!: boolean;
@@ -31,6 +32,7 @@ export class AlbumsComponent implements OnInit {
     this.albumsService.getAlbums().subscribe((albums) => {
       this.albums = albums;
       this.loaded = true;
+      this.album = albums[0];
     });
   }
   getPhotos(): void {
