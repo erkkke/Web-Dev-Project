@@ -8,31 +8,21 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AlbumsService {
   BASE_URL = 'https://jsonplaceholder.typicode.com';
-  // BASE_URL = 'https://picsum.photos';
+  BASE_URL = 'https://picsum.photos';
   constructor(private client: HttpClient) { }
 
-  // getAlbums(): Observable<Album[]> {
-  //   return of(ALBUMS);
-  // }
-  //
-  // getAlbum(id: number): Observable<Album> {
-  //   const album = ALBUMS.find((x) => x.id === id);
-  //   return of(album);
-  // }
-
   getAlbums(): Observable<Album[]> {
-    // return this.client.get<Album[]>(`${this.BASE_URL}/v2/list`);
+    // return this.client.get<Album[]>(`${this.BASE_URL1}/v2/list`);
     return this.client.get<Album[]>(`${this.BASE_URL}/albums`);
   }
-
   getAlbum(id: number): Observable<Album> {
     // const album = ALBUMS.find((x) => x.id === id);
     // return of(album);
     return this.client.get<Album>(`${this.BASE_URL}/albums/${id}`);
   }
-
   getPhotos(id: number): Observable<Photo[]> {
-    return this.client.get<Photo[]>(`${this.BASE_URL}/albums/${id + 1}/photos/`);
+    // return this.client.get<Photo[]>(`${this.BASE_URL}/albums/${id + 1}/photos/`);
+    return this.client.get<Photo[]>(`${this.BASE_URL1}/v2/list`);
   }
   getPhoto(albumId: number, id: number): Observable<Photo>{
     return this.client.get<Photo>(`${this.BASE_URL}/albums/${albumId}/photos/${id}`);
