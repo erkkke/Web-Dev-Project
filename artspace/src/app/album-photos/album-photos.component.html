@@ -1,9 +1,9 @@
 <div class="all-photos">
-  <ul>
-    <li *ngFor="let photo of photos" class="photos" (click)="openModal(template)">
-      <img src="{{photo.url}}">
-    </li>
-  </ul>
+    <div *ngFor="let photo of photos" class="photos" (click)="openModal(template)">
+      <div class="photo">
+        <img src="{{photo.download_url}}">
+      </div>
+    </div>
 </div>
 
 
