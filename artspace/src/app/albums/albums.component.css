@@ -1,23 +1,29 @@
 .album{
   width: 90%;
   overflow: hidden;
-  background-color: rgb(235, 235, 235);
-  margin: 20px auto;
+  margin-left: 90px;
+  background-color: white;
   padding: 20px 0px;
   justify-content: center;
   align-content: center;
+  text-align: center;
+}
+.album p{
+  align-self: center;
+  font-size: 24px;
+  font-family: monospace;
 }
 .newAlbum{
+  /*background-color: red;*/
   display: flex;
   width: 22%;
-  height: 370px;
+  height: 430px;
   margin: 40px 30px 0px 20px;
   box-sizing: border-box;
   border: 2px solid black;
   border-radius: 30px;
   box-shadow: -5px -5px 10px rgba(144, 144, 144, 0.7);
   justify-content: center;
-  align-items: center;
 }
 .newAlbum button{
   border: none;
@@ -76,7 +82,6 @@
 }
 
 .listOfAlbums{
-  resize: both;
   overflow: auto;
   display: grid;
   color: black;
