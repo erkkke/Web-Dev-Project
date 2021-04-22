@@ -1,19 +1,19 @@
 <div class="album">
 
-  <div class="newAlbum">
-    <button (click)="openModal(template)"><img src="https://www.flaticon.com/svg/vstatic/svg/157/157999.svg?token=exp=1618840829~hmac=0626f890e02ca7099be7ef5d8060e9a8"></button>
-  </div>
-
   <div class="albumList">
     <ul *ngIf="loaded">
-      <li *ngFor="let album of albums" class="listOfAlbums" routerLink="/albums/{{album.id}}/photos">
-        <div class="box1"><img src="https://picsum.photos/200/300" class="image"></div>
-        <div class="box2"><img src="https://picsum.photos/200/301" class="image"></div>
-        <div class="box3"><img src="https://picsum.photos/200/302" class="image"></div>
-        <div class="box4"><img src="https://picsum.photos/200/303" class="image"></div>
-        <div class="box5"><img src="https://picsum.photos/200/304" class="image"></div>
-        <div class="box6"><img src="https://picsum.photos/200/305" class="image"></div>
-        <div class="box">{{album.title}}</div>
+<!--      <div class="newAlbum">-->
+<!--        <button (click)="openModal(template)"><img src="https://www.flaticon.com/svg/vstatic/svg/157/157999.svg?token=exp=1618840829~hmac=0626f890e02ca7099be7ef5d8060e9a8"></button>-->
+<!--      </div>-->
+      <li class="listOfAlbums" routerLink="/1/albums/{{album.id}}/photos">
+<!--      <li *ngFor="let album of albums; let i=index;" class="listOfAlbums" routerLink="/1/albums/{{album.id}}/photos">-->
+        <div class="box1"><img src="https://picsum.photos/id/1/5616/3744" class="image"></div>
+        <div class="box2"><img src="https://picsum.photos/id/10/2500/1667" class="image"></div>
+        <div class="box3"><img src="https://picsum.photos/id/100/2500/1656" class="image"></div>
+        <div class="box4"><img src="https://picsum.photos/id/1000/5626/3635" class="image"></div>
+        <div class="box5"><img src="https://picsum.photos/id/1001/5616/3744" class="image"></div>
+        <div class="box6"><img src="https://picsum.photos/id/1002/4312/2868" class="image"></div>
+        <div class="box">My First Album</div>
       </li>
     </ul>
   </div>
