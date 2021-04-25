@@ -3,10 +3,10 @@ from rest_framework import serializers
 from api.models import MyUser
 from django.contrib.auth.models import User
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    banner = serializers.URLField(source="userprofile.banner")
-    photo = serializers.URLField(source="userprofile.photo")
-    desc = serializers.CharField(source="userprofile.desc")
+class UserSerializer(serializers.ModelSerializer):
+    banner = serializers.URLField(source="userprofile.banner", allow_blank=True)
+    photo = serializers.URLField(source="userprofile.photo", allow_blank=True)
+    desc = serializers.CharField(source="userprofile.desc", allow_blank=True)
 
     class Meta:
         model = User
