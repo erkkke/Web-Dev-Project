@@ -1,5 +1,5 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {Album, Photo} from '../../models';
+import {Album, Photo, User} from '../../models';
 import {ActivatedRoute} from '@angular/router';
 import {AlbumsService} from '../../albums.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
@@ -10,15 +10,18 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
   styleUrls: ['./albums.component.css']
 })
 export class AlbumsComponent implements OnInit {
+  user!: User;
   albums!: Album[];
-  album!: Album;
   albumId!: number;
   photos!: Photo[];
   loaded!: boolean;
+  album!: Album;
   newAlbum: number;
   modalRef!: BsModalRef;
 
-  constructor(private albumsService: AlbumsService, private route: ActivatedRoute, private modalService: BsModalService) {
+  constructor(private albumsService: AlbumsService,
+              private route: ActivatedRoute,
+              private modalService: BsModalService) {
     // @ts-ignore
     this.newAlbum = null;
   }
@@ -48,22 +51,16 @@ export class AlbumsComponent implements OnInit {
       console.log('deleted', id);
     });
   }
-  // tslint:disable-next-line:typedef
-  addAlbum() {
-    this.loaded = false;
-    const album = {title: this.newAlbum};
+  addAlbum(): void {
+    console.log(this.album);
     // @ts-ignore
-    // tslint:disable-next-line:no-shadowed-variable
-    this.albumsService.addAlbum(album as Album).subscribe((album) => {
-      this.albums.unshift(album);
-      this.loaded = true;
-    });
+    this.album.title = document.getElementById('input').value;
+    this.albumsService.addAlbum(this.album).subscribe();
+    location.reload();
     this.modalRef.hide();
   }
-
   public openModal(template: TemplateRef<any>): void{
     this.modalRef = this.modalService.show(template);
   }
 
 }
-
