@@ -1,23 +1,20 @@
 <app-album-detail></app-album-detail>
 
-<div class="all-photos"> 
-  <div class="newPhoto">
-    <img src="https://www.flaticon.com/svg/vstatic/svg/43/43869.svg?token=exp=1619628533~hmac=f4ce8005797fc5617d10ae61c471bcdd" width="50%">
-  </div>
-  <div *ngFor="let photo of photos" class="photos" (click)="openModal(template, photo.id)">
-    <div class="photo">
-      <img src="{{photo.url}}">
+<div class="all-photos">
+    <div *ngFor="let photo of photos" class="photos" (click)="openModal(template, photo.id)">
+      <div class="photo">
+        <img src="{{photo.url}}">
+      </div>
     </div>
-  </div>
 </div>
 
 
 <ng-template #template>
-<div class="modal-bg">
-  <div class="modal">
-    <img src="{{thisPhoto.url}}">
-    <p>{{thisPhoto.title}}</p>
-    <button type="button" class="close" aria-label="close" (click)="modalRef.hide()"><span aria-hidden="true">x</span></button>
+  <div class="modal-bg">
+    <div class="modal">
+      <img src="{{thisPhoto.url}}">
+      <p>{{thisPhoto.description}}</p>
+      <button type="button" class="close" aria-label="close" (click)="modalRef.hide()"><span aria-hidden="true">x</span></button>
+    </div>
   </div>
-</div>
 </ng-template>
