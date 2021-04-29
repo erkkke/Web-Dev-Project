@@ -10,11 +10,15 @@ import {AlbumsComponent} from './components/albums/albums.component';
 // import {AlbumDetailComponent} from './album-detail/album-detail.component';
 import {AlbumPhotosComponent} from './components/album-photos/album-photos.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import { UploadPinComponent } from './components/upload-pin/upload-pin.component'
+import { UploadPinComponent } from './components/upload-pin/upload-pin.component';
+import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
+
   {path: 'categories', component: CategoriesComponent},
+  {path: 'categories/:id', component: CategoryDetailComponent},
+  
   {path: 'about', component: AboutComponent},
   {path: 'add', component: UploadPinComponent},
   {path: ':id', component: UserComponent, children: [

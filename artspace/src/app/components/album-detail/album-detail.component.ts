@@ -44,4 +44,14 @@ export class AlbumDetailComponent implements OnInit {
     });
   }
 
+  deleteAlbum(): void {
+    this.route.paramMap.subscribe((params) => {
+      // @ts-ignore
+      const id = +params.get('id');
+      this.albumsService.deleteAlbum(id).subscribe((message) => {
+        this.goBack();
+      })
+    });
+  }
+
 }

@@ -3,12 +3,13 @@ from rest_framework import generics, mixins, status
 from rest_framework.permissions import *
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, authentication_classes
 from rest_framework.views import APIView
 
 from django.contrib.auth.models import User
 from api.models import *
 from api.serializers import *
+
 
 class UserListAPIView(APIView):
     def get(self, request):
@@ -23,8 +24,10 @@ class UserListAPIView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class UserDetailAPIView(APIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
+
     def get_object(self, pk):
         try:
             return User.objects.get(id=pk)
@@ -48,6 +51,7 @@ class UserDetailAPIView(APIView):
         user = self.get_object(pk)
         user.delete()
         return Response({'message': 'deleted'}, status=204)
+
 
 class get_album_detail(APIView):
     def get_object(self, pk):
@@ -73,6 +77,7 @@ class get_album_detail(APIView):
         album = self.get_object(pk)
         album.delete()
         return Response({'message': 'deleted'}, status=204)
+
 
 class get_photo_detail(APIView):
     def get_object(self, album_pk, photo_pk):
@@ -136,3 +141,22 @@ def get_photos_from_album(request, pk):
     elif request.method == "DELETE":
         album.delete()
         return Response({'message': 'deleted'}, status=204)
+
+
+@api_view(['GET'])
+@authentication_classes([])
+def category_list(request):
+    categories = Category.objects.all()
+    serializer = CategorySerializer(categories, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+@authentication_classes([])
+def category_detail(request, pk):
+    try:
+        photos = Category.objects.get(id=pk).photos.all()
+    except Category.DoesNotExist as e:
+        return Response({'message': str(e)}, status=400)
+    serializer = AllPhotoSerializer(photos, many=True)
+    return Response(serializer.data)
