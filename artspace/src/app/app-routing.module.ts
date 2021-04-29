@@ -12,7 +12,6 @@ import {AlbumPhotosComponent} from './components/album-photos/album-photos.compo
 import { SettingsComponent } from './components/settings/settings.component';
 import { UploadPinComponent } from './components/upload-pin/upload-pin.component'
 
-//Moved routes here from app.module.ts - Shayakhmet
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'categories', component: CategoriesComponent},

@@ -14,8 +14,7 @@ export class AlbumPhotosComponent implements OnInit {
   photos!: Photo[];
   thisPhoto!: Photo;
   thisAlbum!: Album;
-  albumId!: number;
-  photoId!: number;
+  albumId: any;
   id!: number;
   modalRef!: BsModalRef;
   constructor(private route: ActivatedRoute,
@@ -33,18 +32,17 @@ export class AlbumPhotosComponent implements OnInit {
       this.photos = photos;
     });
   }
-  getPhoto(): void{
+  getPhoto(photoID: number): void{
     // @ts-ignore
-    this.route.paramMap.subscribe((x) => this.photoId = +x.get('id'));
-    // @ts-ignore
-    this.route.paramMap.subscribe((x) => this.albumId = +x.get('albumId'));
-    this.albumsService.getPhoto(this.albumId, this.photoId).subscribe((photo) => {
+    // this.route.paramMap.subscribe((x) => this.id = +x.get('id'));
+    this.albumsService.getPhoto(this.id, photoID).subscribe((photo) => {
+      // @ts-ignore
       this.thisPhoto = photo;
     });
   }
 
-  public openModal(template: TemplateRef<any>): void{
-    this.getPhoto();
+  public openModal(template: TemplateRef<any>, photoId: number): void{
+    this.getPhoto(photoId);
     this.modalRef = this.modalService.show(template);
   }
 }

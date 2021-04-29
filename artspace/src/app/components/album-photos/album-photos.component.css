@@ -10,6 +10,18 @@
   grid-auto-rows: 10px;
   justify-content: center;
 }
+.newPhoto{
+  border: 2px black solid;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 15px 10px;
+  grid-row-end: span 26;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 .photos{
   border-radius: 20px;
   position: relative;
@@ -20,8 +32,8 @@
 }
 .photos img{
   flex-shrink: 0;
-  min-width: 100%;
-  min-height: 100%
+  min-width: 50%;
+  min-height: 50%
 }
 .photos:hover{
   opacity: 0.9;
@@ -80,5 +92,3 @@
 .close:hover {
   opacity: 1;
 }
-
-

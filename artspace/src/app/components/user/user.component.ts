@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
   ) {}
 
   ngOnInit(): void {
@@ -27,5 +27,4 @@ export class UserComponent implements OnInit {
     this.userService.getUser(id)
       .subscribe(user => this.user = user);
   }
-
 }

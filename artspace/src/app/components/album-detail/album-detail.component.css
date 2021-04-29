@@ -3,23 +3,38 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(235, 235, 235);
+  padding: 2em 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 0.2px solid rgba(0,0,0,0.1);
+}
+
+h2, button {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 2rem;
 }
 
 .adding-title {
   display: flex;
   border-style: none;
-  background-color: steelblue;
   padding: 10px;
   border-radius: 2px;
 }
 
 input {
-  width: 500px;
-  padding: 5px;
+  padding: .375rem .75rem;
+  background-color: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: .25rem;
   margin-right: 10px;
-  height: 20px;
-  border-style: none;
-  border-radius: 2px;
 }
 
 .album-detail {
@@ -35,28 +50,17 @@ input {
   align-items: center;
 }
 
-.back-button {
-  font-size: 13px;
-  padding: 10px;
-  margin-right: 20px;
-  border: none;
-  border-radius: 2px;
-}
-
-.save-button {
-  width: 100px;
-  height: 30px;
+.save-button, .back-button {
+  background-color: inherit;
+  padding: 9px 20px;
   font-size: 15px;
   border: none;
-  border-radius: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
 }
 
-.photos-link {
-  font-size: 13px;
-  padding: 10px;
-  background-color: steelblue;
-  border-radius: 2px;
-  color: black;
-  text-decoration: none;
+.save-button:hover, .back-button:hover {
+  background-color: rgba(41, 187, 137, 0.6);
 }
 

@@ -36,9 +36,6 @@ export class AlbumsComponent implements OnInit {
     });
   }
   getPhotos(): void {
-    // this.albumsService.getPhotos().subscribe((photos: ) => {
-    //   this.photos = photos;
-    // });
     // @ts-ignore
     this.route.paramMap.subscribe((x) => this.albumId = +x.get('id'));
     this.albumsService.getPhotos(this.albumId).subscribe((photos) => {

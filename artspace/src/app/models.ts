@@ -1,16 +1,13 @@
 export interface Album {
   id: number;
-  author: string;
   title: string;
-  url: string;
-  download_url: string;
 }
 
 export interface Photo {
   id: number;
-  author: string;
+  title: string;
   url: string;
-  download_url: string;
+  description: string;
 }
 
 export class Pin {
@@ -22,23 +19,23 @@ export class Pin {
 }
 
 export interface User {
-  "id": number;
-  "username": string;
+  id: number;
+  username: string;
   // "password": string;
-  "banner": string;
-  "photo": string;
-  "email": string;
-  "desc": string;
-  "followers": number;
+  banner: string;
+  photo: string;
+  email: string;
+  desc: string;
+  followers: number;
 };
 
 export interface TokenInfo {
-  "email": string;
-  "exp": number;
-  "user_id": number;
-  "username": string;
+  email: string;
+  exp: number;
+  user_id: number;
+  username: string;
 }
 
 export interface AuthToken {
-  "token": string;
+  token: string;
 }

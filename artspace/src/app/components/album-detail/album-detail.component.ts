@@ -17,28 +17,25 @@ export class AlbumDetailComponent implements OnInit {
               private albumsService: AlbumsService) { }
 
   ngOnInit(): void {
-    // const id = +this.route.snapshot.paramMap.get('id');
-    // this.album = ALBUMS.find((x) => x.id === id);
-    // this.route.paramMap.subscribe((params) => {
-    //   const id = +params.get('id');
-    //   this.album = ALBUMS.find((x) => x.id === id);
-    // });
     this.getAlbum();
   }
+
   getAlbum(): void {
     this.route.paramMap.subscribe((params) => {
       // @ts-ignore
       const id = +params.get('id');
       this.loaded = false;
-      this.albumsService.getAlbum(id).subscribe((album) => {
-        this.album = album;
+      this.albumsService.getAlbums().subscribe((albums) => {
+        this.album = albums.find(x => x.id === id)!
         this.loaded = true;
       });
     });
   }
+
   goBack(): void {
     this.location.back();
   }
+
   updateAlbum(): void {
     this.loaded = false;
     this.albumsService.updateAlbum(this.album).subscribe((album) => {
@@ -46,4 +43,5 @@ export class AlbumDetailComponent implements OnInit {
       this.loaded = true;
     });
   }
+
 }
