@@ -45,6 +45,30 @@ class Album(models.Model):
         return f'{self.title}'
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+    photo = models.URLField(max_length=1000)
+
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
+    def __str__(self):
+        return self.name
+
+
+class AllPhoto(models.Model):
+    SIZE_CHOICES = (('small', 'small'), ('medium', 'medium'), ('large', 'large'))
+    title = models.CharField(max_length=200)
+    description = models.TextField(max_length=500)
+    photo = models.URLField(max_length=10000)
+    size = models.CharField(max_length=200, choices=SIZE_CHOICES)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, related_name='photos')
+
+    def __str__(self):
+        return f'{self.title} : {self.category}'
+
+
 class Photo(models.Model):
     url = models.CharField(max_length=10000000)
     title = models.CharField(max_length=500)

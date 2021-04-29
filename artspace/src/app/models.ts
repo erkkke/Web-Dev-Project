@@ -10,12 +10,27 @@ export interface Photo {
   description: string;
 }
 
-export class Pin {
-  author!: string;
+export interface Category {
+  id: number;
+  name: string;
+  photo: string;
+}
+
+export interface AllPhoto {
+  id: number;
+  title: string;
+  description: string;
+  photo: string;
+  size: string;
+  category: number;
+}
+
+export interface Pin {
+  author: string;
   photo: any;
-  size!: string;
-  title!: string;
-  description!: string;
+  size: string;
+  title: string;
+  description: string;
 }
 
 export interface User {

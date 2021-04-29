@@ -1,11 +1,8 @@
 <div class="category_container">
-    <h1>Categories</h1>
-    <div class="category">
-        <img src="https://fsa.zobj.net/crop.php?r=tGVQcDgmGAXo_0BBoqrS-lLR8RMo7qthIgqEhzWXfr-rAcPA80FLfh2GlhBkjeuzoxaWxDprKlbwolRAo33hiCnYufmzUsybOD6DnA-1h-f76YLsgSlEYyuP3BkXnGK1yEGQSj-ag_TvzVVk" alt="">
-        <h1>Title</h1>
-    </div>
-    <div class="category">
-        <img src="https://fsa.zobj.net/crop.php?r=tGVQcDgmGAXo_0BBoqrS-lLR8RMo7qthIgqEhzWXfr-rAcPA80FLfh2GlhBkjeuzoxaWxDprKlbwolRAo33hiCnYufmzUsybOD6DnA-1h-f76YLsgSlEYyuP3BkXnGK1yEGQSj-ag_TvzVVk" alt="">
-        <h1>Title</h1>
+    <h1 class="title">Categories</h1>
+    <div *ngIf="isLoading">Loading...</div>
+    <div class="category" *ngFor='let category of categories' [routerLink]="['/categories', category.id]">
+        <img src="{{category.photo}}" alt="">
+        <h3>{{category.name}}</h3>
     </div>
 </div>

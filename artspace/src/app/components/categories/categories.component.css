@@ -6,6 +6,11 @@
     align-items: center;
 }
 
+.category_container .title {
+    margin-bottom: 40px;
+    margin-top: 10px
+}
+
 .category {
     width: 40%;
     height: 90px;
@@ -20,7 +25,11 @@
     border: 1px rgb(207, 207, 207) solid;
     /* border: none; */
     background-color: whitesmoke;
+    cursor: pointer;
+}
 
+.category:hover {
+    background-color: rgba(40, 40, 40, .1);
 }
 
 .category img {

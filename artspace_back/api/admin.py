@@ -10,11 +10,15 @@ class MyUserInline(admin.StackedInline):
     can_delete = False
     verbose_name_plural = 'MyUsers'
 
-class UserAdmin(BaseUserAdmin): 
-    inlines = (MyUserInline, )
+
+class UserAdmin(BaseUserAdmin):
+    inlines = (MyUserInline,)
+
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 
 admin.site.register(Album)
 admin.site.register(Photo)
+admin.site.register(Category)
+admin.site.register(AllPhoto)

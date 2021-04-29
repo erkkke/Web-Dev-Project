@@ -15,4 +15,8 @@ urlpatterns = [
     path('albums/<int:pk>/', get_album_detail.as_view(), name='userAlbumDetail'),
     path('albums/<int:pk>/photo/', get_photos_from_album, name='userPhotoList'),
     path('albums/<int:album_pk>/photo/<int:photo_pk>/', get_photo_detail.as_view(), name='userPhotoDetail'),
+
+    path('categories/', category_list),
+    path('categories/<int:pk>/', category_detail),
+
 ]

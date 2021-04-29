@@ -19,6 +19,7 @@ import { AlbumPhotosComponent } from './components/album-photos/album-photos.com
 import { SettingsComponent } from './components/settings/settings.component';
 import { UploadPinComponent } from './components/upload-pin/upload-pin.component';
 import { AuthInterceptor } from './AuthInterceptor';
+import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthInterceptor } from './AuthInterceptor';
     UserComponent,
     FollowsComponent,
     SettingsComponent,
-    UploadPinComponent
+    UploadPinComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
