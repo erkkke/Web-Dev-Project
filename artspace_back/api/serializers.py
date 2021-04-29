@@ -55,10 +55,10 @@ class PhotoSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'url', 'album', 'album_id')
 
 
-class CategorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Category
-        fields = ('id', 'name', 'photo')
+class CategorySerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField()
+    photo = serializers.URLField()
 
 
 class AllPhotoSerializer(serializers.ModelSerializer):
