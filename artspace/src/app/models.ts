@@ -8,6 +8,7 @@ export interface Photo {
   title: string;
   url: string;
   description: string;
+  album_id: number;
 }
 
 export interface Category {
