@@ -14,7 +14,7 @@ export class AlbumPhotosComponent implements OnInit {
   photos!: Photo[];
   thisPhoto!: Photo;
   thisAlbum!: Album;
-  albumId: any;
+  photo!: Photo;
   id!: number;
   modalRef!: BsModalRef;
   constructor(private route: ActivatedRoute,
@@ -40,9 +40,11 @@ export class AlbumPhotosComponent implements OnInit {
       this.thisPhoto = photo;
     });
   }
-
   public openModal(template: TemplateRef<any>, photoId: number): void{
     this.getPhoto(photoId);
+    this.modalRef = this.modalService.show(template);
+  }
+  public openModal1(template: TemplateRef<any>): void{
     this.modalRef = this.modalService.show(template);
   }
 }
