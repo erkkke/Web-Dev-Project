@@ -10,6 +10,7 @@
 
   <p *ngIf="!loaded" class="loading">Loading album...</p><br>
   <div class="buttons">
+    <button (click)="deleteAlbum()" class="delete-album-button">Delete Album</button>
     <button (click)="goBack()" class="back-button">Go Back</button>
   </div>
 </div>
