@@ -27,3 +27,35 @@ class MyUser(models.Model):
 
     def __str__(self):
         return f'{self.user.username}#{self.id}'
+
+class Album(models.Model):
+    name = models.CharField(max_length=500, default="")
+    title = models.CharField(max_length=500)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name="users")
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'name': self.name,
+            'user': self.user
+        }
+
+    def __str__(self):
+        return f'{self.title}'
+
+
+class Photo(models.Model):
+    url = models.CharField(max_length=10000000)
+    title = models.CharField(max_length=500)
+    description = models.TextField(max_length=1000)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, null=True, related_name="albums")
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'url': self.url,
+            'title': self.title,
+            'description': self.description,
+            'album': self.album.to_json()
+        }

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.models import MyUser
+from api.models import *
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
@@ -29,3 +29,23 @@ class UserSerializer(serializers.ModelSerializer):
             MyUser.objects.create(user=instance)
 
         return instance
+
+class AlbumSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    title = serializers.CharField(max_length=200)
+
+    def create(self, validated_data):
+        album = Album.objects.create(title=validated_data['title'])
+        return album
+
+    def update(self, instance, validated_data):
+        instance.title = validated_data.get('title', instance.title)
+        instance.save()
+        return instance
+
+class PhotoSerializer(serializers.ModelSerializer):
+    album = AlbumSerializer(read_only=True)
+    album_id = serializers.IntegerField(read_only=True)
+    class Meta:
+        model = Photo
+        fields = ('id', 'title', 'url', 'album', 'album_id')
